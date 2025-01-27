@@ -1,0 +1,23 @@
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+  <entity name="solution">
+    <attribute name="solutionid"
+    <attribute name="uniquename"
+    <attribute name="friendlyname"
+    <attribute name="solutiontype"
+    <attribute name="installedon"
+    <attribute name="isvisible" />
+  <order attribute="installedon" descending="true" />
+  <link-entity name="publisher" from="publisherid" to="publisherid" link-type="inner" visible="true">
+    <filter type="or">
+      <condition attribute="uniquename" operator="like" value="%microsoft$" />
+      <condition attribute="uniquename" operator="like" value="%dynamics%" />
+    </filter>
+    </link-entity>
+  </entity>
+</fetch>
+
+Return to the Power Apps Maker Portal and open any of the visible solutions in the target environment. Then replace the last GUID in the URL of the browser's address
+bar (highlighted as <SolutionID> in the example below) with the Solution Identifier you have copied to your clipboard from the FetchXML Builder. Do not replace the
+<EnvironmentID> value
+
+https://make.powerapps.com/environments/<EnvironmentID>/solutions/<SolutionID>
